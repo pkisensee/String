@@ -30,7 +30,7 @@ namespace // anonymous
 
 struct XmlMarkup
 {
-  char           symbol;     // e.g. '&'
+  char           symbol;        // e.g. '&'
   const char    *xmlCode;       // e.g. "&amp;"
   const wchar_t *xmlWideCode;   // e.g. L"&amp;" TODO use this
 };
