@@ -183,6 +183,9 @@ void TestStrList()
   test( a.GetCharCount() == 6 );
   a.push_back( "" );
   test( a.ContainsEmptyStrings() );
+  test( a.find( "xyz" ) );
+  test( a.find( "" ) );
+  test( !a.find( "abc" ) );
   StrList b;
   test( a != b );
   b = a;
