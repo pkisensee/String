@@ -69,6 +69,16 @@ public:
     Yes
   };
   
+  static bool IsUpper( C c )
+  {
+    return !!std::isupper( c, mLocale );
+  }
+
+  static bool IsLower( C c )
+  {
+    return !!std::islower( c, mLocale );
+  }
+
   static C ToUpper( C c )
   {
     return C( toupper( C( c ), mLocale ) );
