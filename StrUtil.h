@@ -65,13 +65,13 @@ inline T TransformTo( F str ) noexcept
 #pragma warning(push)
 #pragma warning(disable: 4244) // ignore loss of data; it's expected
 
-inline std::string GetUtf8( const std::wstring& wstr )
+inline std::string GetUtf8( std::wstring_view wstr )
 {
   return TransformTo<std::string>( wstr );
 }
 #pragma warning(pop)
 
-inline std::wstring GetUtf16( const std::string& str )
+inline std::wstring GetUtf16( std::string_view str )
 {
   return TransformTo<std::wstring>( str );
 }
