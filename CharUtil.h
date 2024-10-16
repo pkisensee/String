@@ -94,9 +94,14 @@ public:
     return c == C( '/' ) ? C( '\\' ) : c;
   }
 
-  static bool IsNumeric( C c )
+  static bool IsDigit( C c )
   {
     return !!std::isdigit( c, mLocale );
+  }
+
+  static bool IsNumeric( C c )
+  {
+    return IsDigit( c ) || ( c == C( '.' ) );
   }
   
   static bool IsAlpha( C c )

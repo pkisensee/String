@@ -207,9 +207,25 @@ public:
     return r;
   }
 
+  static bool IsDigit( const strT& str )
+  {
+    return !str.empty() && std::ranges::all_of( str, CharUtilT<C>::IsDigit );
+  }
+
   static bool IsNumeric( const strT& str )
   {
-    return !str.empty() && std::ranges::all_of( str, CharUtilT<C>::IsNumeric );
+    if( str.empty() )
+      return false;
+
+    // allow leading minus sign
+    using namespace std::ranges;
+    if( str[0] == C( '-' ) )
+    {
+      auto substr = subrange( std::begin( str ) + 1, std::end( str ) );
+      return all_of( substr, CharUtilT<C>::IsNumeric );
+    }
+
+    return all_of( str, CharUtilT<C>::IsNumeric );
   }
 
   static bool IsAlphaNum( const strT& str )
