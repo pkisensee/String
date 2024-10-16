@@ -221,8 +221,8 @@ public:
     using namespace std::ranges;
     if( str[0] == C( '-' ) )
     {
-      auto substr = subrange( std::begin( str ) + 1, std::end( str ) );
-      return all_of( substr, CharUtilT<C>::IsNumeric );
+      auto remaining = subrange( std::begin( str ) + 1, std::end( str ) );
+      return all_of( remaining, CharUtilT<C>::IsNumeric );
     }
 
     return all_of( str, CharUtilT<C>::IsNumeric );
